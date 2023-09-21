@@ -1,7 +1,9 @@
 ﻿using Memory.Commands;
+using Memory.Views.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -24,8 +26,6 @@ namespace Memory.ViewModels
 
         public bool IsGameButtonsEnabled { get; set; } = false;
 
-        int memorySize = 8;
-
         private MainViewModel()
         {
             StartGameCommand = new RelayCommand(x => StartGameByChosenTheme(x));
@@ -39,12 +39,17 @@ namespace Memory.ViewModels
         /// <param name="x">Chosen theme</param>
         private void StartGameByChosenTheme(object x)
         {
-            if (x.ToString() == "animal")
+            if (x.ToString() == "cute")
             {
+                var soundPlayer = new SoundPlayer(Properties.Resources.Yay);
+                soundPlayer.Play();
                 MainViewModel.Instance.CurrentViewModel = new CuteThemeViewModel();
             }
-            else if (x.ToString() == "fruit")
+            else if (x.ToString() == "horror")
             {
+                var soundPlayer = new SoundPlayer(Properties.Resources.Evil);
+                soundPlayer.Play();
+
                 MainViewModel.Instance.CurrentViewModel = new HorrorThemeViewModel();
             }
         }
@@ -54,7 +59,6 @@ namespace Memory.ViewModels
         /// </summary>
         protected void RestartGame()
         {
-            IsGameButtonsEnabled = false;
             MainViewModel.Instance.CurrentViewModel = new StartGameViewModel();
         }
 

@@ -1,9 +1,19 @@
 ﻿<Application x:Class="Memory.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="clr-namespace:Memory.ViewModels"
+             xmlns:pages="clr-namespace:Memory.Views.Pages"
              xmlns:local="clr-namespace:Memory"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate DataType="{x:Type vm:GameViewModel}">
+            <pages:MainGamePage/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:StartGameViewModel}">
+            <pages:StartGamePage/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:EndGameViewModel}">
+            <pages:EndGamePage/>
+        </DataTemplate>
     </Application.Resources>
 </Application>

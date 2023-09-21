@@ -46,6 +46,9 @@ namespace Memory.ViewModels
 
             if (SelectedCards.ElementAt(0).Picture == SelectedCards.ElementAt(1).Picture)
             {
+                var soundPlayer = new SoundPlayer(Properties.Resources.Correct);
+                soundPlayer.Play();
+
                 await Task.Delay(800);
                 foreach (CardComponent card in SelectedCards)
                 {
@@ -61,6 +64,8 @@ namespace Memory.ViewModels
                 {
                     card.CardStatus = CardStatus.CuteCardDown;
                 }
+                var soundPlayer = new SoundPlayer(Properties.Resources.Wrong);
+                soundPlayer.Play();
             }
             isMatchingInProgress = false;
             SelectedCards.Clear();
@@ -78,6 +83,16 @@ namespace Memory.ViewModels
                 new Uri("pack://application:,,,/Memory;component/Images/Cute/Icecream.jpg"),
                 new Uri("pack://application:,,,/Memory;component/Images/Cute/Lolipop.jpg"),
                 new Uri("pack://application:,,,/Memory;component/Images/Cute/Lolipop.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Cute/Dog.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Cute/Dog.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Cute/Cupcake.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Cute/Cupcake.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Cute/Sunflower.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Cute/Sunflower.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Cute/Umbrellas.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Cute/Umbrellas.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Cute/Unicorn.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Cute/Unicorn.jpg"),
             };
         }
     }

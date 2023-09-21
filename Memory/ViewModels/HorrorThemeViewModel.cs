@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -42,9 +43,11 @@ namespace Memory.ViewModels
             NumberOfTries++;
             Tries = $"Antal försök: {NumberOfTries}";
 
-
             if (SelectedCards.ElementAt(0).Picture == SelectedCards.ElementAt(1).Picture)
             {
+                var soundPlayer = new SoundPlayer(Properties.Resources.Correct);
+                soundPlayer.Play();
+
                 await Task.Delay(800);
                 foreach (CardComponent card in SelectedCards)
                 {
@@ -60,6 +63,8 @@ namespace Memory.ViewModels
                 {
                     card.CardStatus = CardStatus.HorrorCardDown;
                 }
+                var soundPlayer = new SoundPlayer(Properties.Resources.Wrong);
+                soundPlayer.Play();
             }
             isMatchingInProgress = false;
             SelectedCards.Clear();
@@ -77,6 +82,16 @@ namespace Memory.ViewModels
                 new Uri("pack://application:,,,/Memory;component/Images/Horror/Skull.jpg"),
                 new Uri("pack://application:,,,/Memory;component/Images/Horror/Spider.jpg"),
                 new Uri("pack://application:,,,/Memory;component/Images/Horror/Spider.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Horror/Doll.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Horror/Doll.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Horror/Hands.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Horror/Hands.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Horror/Pumpkin.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Horror/Pumpkin.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Horror/Tree.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Horror/Tree.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Horror/Murderer.jpg"),
+                new Uri("pack://application:,,,/Memory;component/Images/Horror/Murderer.jpg"),
             };
         }
     }

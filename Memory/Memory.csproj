@@ -10,16 +10,32 @@
   <ItemGroup>
     <None Remove="Images\Cute\Bunny.jpg" />
     <None Remove="Images\Cute\Chicken.jpg" />
+    <None Remove="Images\Cute\Cupcake.jpg" />
+    <None Remove="Images\Cute\Dog.jpg" />
     <None Remove="Images\Cute\Icecream.jpg" />
     <None Remove="Images\Cute\Lolipop.jpg" />
+    <None Remove="Images\Cute\Sunflower.jpg" />
+    <None Remove="Images\Cute\Umbrellas.jpg" />
+    <None Remove="Images\Cute\Unicorn.jpg" />
     <None Remove="Images\Horror\Clown.jpg" />
+    <None Remove="Images\Horror\Doll.jpg" />
+    <None Remove="Images\Horror\Hands.jpg" />
     <None Remove="Images\Horror\House.jpg" />
+    <None Remove="Images\Horror\Murderer.jpg" />
+    <None Remove="Images\Horror\Pumpkin.jpg" />
     <None Remove="Images\Horror\Skull.jpg" />
     <None Remove="Images\Horror\Spider.jpg" />
+    <None Remove="Images\Horror\Tree.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Images\Cute\Chicken.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Cute\Cupcake.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Cute\Dog.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Cute\Icecream.jpg">
@@ -28,16 +44,40 @@
     <Resource Include="Images\Cute\Lolipop.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Cute\Sunflower.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Cute\Umbrellas.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Cute\Unicorn.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Horror\Clown.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\Horror\Doll.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Horror\Hands.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\Horror\House.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Horror\Murderer.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Horror\Pumpkin.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Horror\Skull.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Horror\Spider.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Horror\Tree.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
@@ -59,6 +99,14 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Fody" Version="6.8.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="PropertyChanged.Fody" Version="4.1.0" />
   </ItemGroup>
 
   <ItemGroup>

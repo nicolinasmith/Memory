@@ -3,10 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:Memory.ViewModels"
              xmlns:local="clr-namespace:Memory.Views.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Border BorderBrush="Black" BorderThickness="20">
+        <Grid Background="PowderBlue" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="{Binding Message}" Grid.Row="1" FontSize="46" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="NSimSun" FontWeight="Bold" TextAlignment="Center"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Grid.Row="2">
+            <Button Content="Starta om spelet" Background="RosyBrown" Command="{Binding RestartGameCommand, Source={x:Static vm:MainViewModel.Instance} }" Height="130" Width="280" Margin="50" FontFamily="NSimSun" FontSize="24" FontWeight="Bold"/>
+            <Button Content="Avsluta spelet" Background="RosyBrown" Command="{Binding EndGameCommand, Source={x:Static vm:MainViewModel.Instance}}" Height="130" Width="280" Margin="50" FontFamily="NSimSun" FontSize="24" FontWeight="Bold"/>
+        </StackPanel>
+
     </Grid>
+    </Border>
 </UserControl>

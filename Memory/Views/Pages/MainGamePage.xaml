@@ -3,10 +3,33 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vm="clr-namespace:Memory.ViewModels"
              xmlns:local="clr-namespace:Memory.Views.Pages"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="PowderBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="1.1*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" FontFamily="NSimSun" FontWeight="Bold" VerticalAlignment="Center" Content="Memory" FontSize="65"/>
+        <StackPanel Grid.Row="1" Grid.Column="2">
+            <Label Content="Tid som gått:" FontSize="45" FontWeight="Bold" FontFamily="NSimSun"/>
+            <Label Content="{Binding CurrentTime}" FontSize="40" FontFamily="NSimSun" FontWeight="Bold" Width="400" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" BorderBrush="Black" Background="AliceBlue" BorderThickness="4" Height="100"/>
+            <Label Content="{Binding Tries}" FontSize="45" FontFamily="NSimSun" Margin = "0,80" FontWeight="Bold"/>
+        </StackPanel>
+        <ItemsControl Grid.Column="0" Grid.Row="1" ItemsSource="{Binding MemoryCards, UpdateSourceTrigger=PropertyChanged}" Width="800" Height="800" HorizontalContentAlignment="Center">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <UniformGrid Columns="4" Rows="4"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
     </Grid>
 </UserControl>

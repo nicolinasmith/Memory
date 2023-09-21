@@ -33,7 +33,7 @@ namespace Memory.ViewModels
 
         public string Tries { get; set; }
 
-        protected int MemorySize = 8;
+        protected int MemorySize = 18;
 
         protected bool isMatchingInProgress = false;
 
@@ -41,9 +41,7 @@ namespace Memory.ViewModels
 
         public GameViewModel()
         {
-
             CardIsClickedCommand = new RelayCommand(execute: x => FlipACard(x));
-
             Tries = $"Antal försök: {NumberOfTries}";
         }
 
@@ -92,6 +90,9 @@ namespace Memory.ViewModels
         /// <param name="x">Memory card object</param>
         protected void FlipACard(object x)
         {
+            var soundPlayer = new SoundPlayer(Properties.Resources.Click);
+            soundPlayer.Play();
+
             if (isMatchingInProgress) { return; }
 
             CardComponent card = (CardComponent)x;
@@ -124,9 +125,12 @@ namespace Memory.ViewModels
                 }
                 if (count == MemoryCards.Count)
                 {
+                    var soundPlayer = new SoundPlayer(Properties.Resources.FinishedGame);
+                    soundPlayer.Play();
+
                     Timer.Stop();
 
-                    string message = $"Du har matchat alla kort, bra jobbat! \nDin tid var: {CurrentTime} på {NumberOfTries} försök. \n \nVill du spela igen?";
+                    string message = $"Du har matchat alla kort, bra jobbat! \nDu klarade det på {CurrentTime} & {NumberOfTries} försök. \n \nVill du spela igen?";
                     MainViewModel.Instance.CurrentViewModel = new EndGameViewModel(message);
 
                 }

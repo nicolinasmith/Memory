@@ -20,20 +20,13 @@ namespace Memory.Converters
             switch (cardstatus)
             {
                 case CardStatus.CuteCardDown:
-                    var imageBrush = new ImageBrush();
-                    var imageUri = new Uri("pack://application:,,,/Memory_G7;component/Pictures/Rainbow.jpg");
-                    imageBrush.ImageSource = new BitmapImage(imageUri);
-                    return imageBrush;
+                    return new SolidColorBrush(Colors.Pink);
 
                 case CardStatus.HorrorCardDown:
-                    var fruitImageBrush = new ImageBrush();
-                    var fruitImageUri = new Uri("pack://application:,,,/Memory_G7;component/Pictures/Clouds.jpg");
-                    fruitImageBrush.ImageSource = new BitmapImage(fruitImageUri);
-                    return fruitImageBrush;
+                    return new SolidColorBrush(Colors.Black);
 
                 case CardStatus.CardUp:
                     return new SolidColorBrush(Colors.Transparent);
-
 
                 default:
                     throw new NotImplementedException();

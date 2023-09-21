@@ -4,13 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:converter="clr-namespace:Memory.Converters"
-             xmlns:vm="clr-namespace:Memory.ViewModels"             
+             xmlns:vm="clr-namespace:Memory.ViewModels"  d:DataContext="{d:DesignInstance Type=vm:MainViewModel}"             
              xmlns:local="clr-namespace:Memory.Views.Components"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              x:Name="CardControl">
     <UserControl.Resources>
-        <converter:CardConverter x:Key="CardControl"/>
+        <converter:CardConverter x:Key="CardConverter"/>
+        <converter:VisibilityConverter x:Key="VisibilityConverter"/>
     </UserControl.Resources>
     <Border BorderBrush="Black" BorderThickness="2" Margin="10" Background="White">
         <Grid Background="{Binding CardStatus, Converter={StaticResource CardConverter}, ElementName=CardControl}">
